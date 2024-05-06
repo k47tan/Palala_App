@@ -9,16 +9,10 @@ class AuthUser extends GetxController {
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
-  var isUserLoggedIn = false.obs;
+  // UUID admin
+  final String adminUid = 'aJFIxPGq7xOrgiyzMeZOB9PNffN2';
 
-  @override
-  void onInit() {
-    super.onInit();
-    if (_auth.currentUser != null) {
-      debugPrint('User already signed in');
-    }
-  }
-
+  // fungsi createUser untuk membuat user baru
   void createUser() async {
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
@@ -74,6 +68,15 @@ class AuthUser extends GetxController {
         email: email,
         password: password,
       );
+
+      final User? user = _auth.currentUser;
+      // check apakah role admin atau bukan
+      if (user!.uid == adminUid) {
+        Get.offNamed('/admin');
+      } else {
+        Get.offNamed('/home');
+      }
+
       Get.snackbar(
         'Success',
         'User signed in successfully',
@@ -82,7 +85,7 @@ class AuthUser extends GetxController {
       // Membersihkan controller setelah penggunaan
       emailController.clear();
       passwordController.clear();
-      await Get.offNamed('/home');
+      // await Get.offNamed('/home');
     } on FirebaseAuthException catch (e) {
       Get.snackbar(
         'Error',
