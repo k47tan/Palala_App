@@ -6,8 +6,6 @@ class AuthUser extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
 
   // UUID admin
   final String adminUid = 'aJFIxPGq7xOrgiyzMeZOB9PNffN2';
@@ -39,7 +37,6 @@ class AuthUser extends GetxController {
       // Membersihkan controller setelah penggunaan
       emailController.clear();
       passwordController.clear();
-      confirmPasswordController.clear();
       await Get.offNamed('/sign-in');
     } on FirebaseAuthException catch (e) {
       Get.snackbar(
@@ -110,7 +107,6 @@ class AuthUser extends GetxController {
     // Membersihkan controller ketika controller ditutup
     emailController.dispose();
     passwordController.dispose();
-    confirmPasswordController.dispose();
     super.onClose();
   }
 }

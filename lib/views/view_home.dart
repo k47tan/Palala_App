@@ -20,8 +20,20 @@ class HomeView extends StatelessWidget {
               })
         ],
       ),
-      body: const Center(
-        child: Text('Welcome to Home'),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 20),
+            const Text('Welcome to Home'),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/admin');
+              },
+              child: const Text('admin'),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:palala/viewmodels/viewmodels_auth.dart';
 
 class SplashView extends StatefulWidget {
-  const SplashView({super.key});
+  SplashView({super.key});
+
+  final AuthUser authUser = Get.put(AuthUser());
 
   @override
   _SplashViewState createState() => _SplashViewState();
