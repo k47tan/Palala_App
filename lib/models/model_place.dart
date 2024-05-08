@@ -25,7 +25,7 @@ class Place {
 
   factory Place.fromMap(Map<String, dynamic> map, String id) {
     return Place(
-      id: map['id'],
+      id: id,
       name: map['name'],
       description: map['description'],
       image: map['image'],

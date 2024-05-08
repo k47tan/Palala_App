@@ -69,7 +69,7 @@ class AuthUser extends GetxController {
       final User? user = _auth.currentUser;
       // check apakah role admin atau bukan
       if (user!.uid == adminUid) {
-        Get.offNamed('/admin');
+        Get.offNamed('/admin-home');
       } else {
         Get.offNamed('/home');
       }

@@ -6,7 +6,7 @@ import '../../viewmodels/viewmodel_place.dart';
 import '../../viewmodels/viewmodels_auth.dart';
 
 // ignore: must_be_immutable
-class AdminView extends StatelessWidget {
+class AdminAddView extends StatelessWidget {
   final PlaceViewModel _placeViewModel = Get.put(PlaceViewModel());
   final AuthUser authUser = Get.find<AuthUser>();
   final ImagePicker _picker = ImagePicker();
@@ -16,7 +16,7 @@ class AdminView extends StatelessWidget {
 
   File? _imageFile;
 
-  AdminView({super.key});
+  AdminAddView({super.key});
 
   Future<void> _getImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
@@ -47,9 +47,9 @@ class AdminView extends StatelessWidget {
         title: Text('Add Place'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.logout),
+            icon: const Icon(Icons.exit_to_app_rounded),
             onPressed: () {
-              authUser.signOut();
+              Get.offNamed('/admin-home');
             },
           )
         ],
