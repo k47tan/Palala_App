@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:palala/viewmodels/viewmodels_auth.dart';
 
+import 'widget/widget_navbar.dart';
+
 class HomeView extends StatelessWidget {
   HomeView({super.key});
 
@@ -12,13 +14,6 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
-        actions: [
-          IconButton(
-              icon: const Icon(Icons.logout),
-              onPressed: () {
-                authUser.signOut();
-              })
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -26,15 +21,10 @@ class HomeView extends StatelessWidget {
             const SizedBox(height: 20),
             const Text('Welcome to Home'),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Get.toNamed('/admin');
-              },
-              child: const Text('admin'),
-            ),
           ],
         ),
       ),
+      bottomNavigationBar: Navbar(),
     );
   }
 }

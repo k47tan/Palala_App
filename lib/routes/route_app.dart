@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:palala/views/view_weather.dart';
 
 import '../views/admin/list_admin.dart';
 import '../views/admin/add_place_admin.dart';
@@ -15,5 +16,6 @@ class AppRoute {
     GetPage(name: '/admin-add', page: () => AdminAddView()),
     GetPage(name: '/admin-home', page: () => AdminHomeView()),
     GetPage(name: '/chat-bot', page: () => ChatBotView()),
+    GetPage(name: '/weather', page: () => WeatherView()),
   ];
 }
