@@ -16,7 +16,8 @@ class WeatherView extends StatelessWidget {
         child: Column(
           children: const [
             SizedBox(height: 20),
-            Text('Welcome to Weather'),
+            Text('Welcome to Weather, Comming son',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
             SizedBox(height: 20),
           ],
         ),

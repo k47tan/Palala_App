@@ -15,7 +15,8 @@ class ChatBotView extends StatelessWidget {
         child: Column(
           children: const [
             SizedBox(height: 20),
-            Text('Welcome to Chat Bot'),
+            Text('Welcome to Chat Bot, Comming son',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
             SizedBox(height: 20),
           ],
         ),

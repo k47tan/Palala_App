@@ -11,27 +11,35 @@ class Navbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      unselectedItemColor: Colors.grey,
+      selectedItemColor: Colors.grey,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.home,
-              color: Colors.grey), // warna ikon ketika tidak dipilih
-          activeIcon: Icon(Icons.home,
-              color: Color(0xFF5E8A75)), // warna ikon ketika dipilih
+          icon: Icon(
+            Icons.home,
+            color: Color(0xFF5E8A75),
+          ), // warna ikon ketika tidak dipilih
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.wb_sunny_rounded, color: Colors.grey),
-          activeIcon: Icon(Icons.wb_sunny_rounded, color: Color(0xFF5E8A75)),
+          icon: Icon(
+            Icons.wb_sunny_rounded,
+            color: Color(0xFF5E8A75),
+          ),
           label: 'Weather',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.chat, color: Colors.grey),
-          activeIcon: Icon(Icons.chat, color: Color(0xFF5E8A75)),
+          icon: Icon(
+            Icons.chat,
+            color: Color(0xFF5E8A75),
+          ),
           label: 'Chat Bot',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.logout, color: Colors.grey),
-          activeIcon: Icon(Icons.logout, color: Color(0xFF5E8A75)),
+          icon: Icon(
+            Icons.logout,
+            color: Color(0xFF5E8A75),
+          ),
           label: 'Logout',
         )
       ],
