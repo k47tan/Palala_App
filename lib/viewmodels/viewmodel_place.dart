@@ -68,7 +68,7 @@ class PlaceViewModel extends GetxController {
               .toList());
     } catch (e) {
       print("Error getting places: $e");
-      return Stream.empty();
+      return const Stream.empty();
     }
   }
 }
