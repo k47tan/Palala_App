@@ -7,7 +7,7 @@ import '../models/model_current_weather.dart';
 import 'package:http/http.dart' as http;
 
 class WeatherViewModel extends GetxController {
-  final String? apiKey = dotenv.env['WEATHER_API'];
+  final String? apiKey = dotenv.env['WEATHER_API_KEY'];
   Rx<CurrentWeather?> weather = Rx<CurrentWeather?>(null);
 
   Future<void> fetchWeather(double lat, double lon) async {
@@ -22,11 +22,11 @@ class WeatherViewModel extends GetxController {
         print(weather.value!.weather![0].icon);
       } else {
         // Handle other status codes if needed
-        weather.value = null;
+        throw Exception('Failed to get weather');
       }
     } catch (e) {
       // Handle errors during HTTP request
-      weather.value = null;
+      throw Exception('Failed to get weather: $e');
     }
   }
 }
