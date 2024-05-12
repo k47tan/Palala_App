@@ -73,6 +73,10 @@ class AdminAddView extends StatelessWidget {
               SizedBox(height: 16),
               ElevatedButton(
                 onPressed: _getImage,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF5E8A75),
+                  foregroundColor: Colors.white,
+                ),
                 child: Text('Select Image'),
               ),
               SizedBox(height: 16),
@@ -85,6 +89,10 @@ class AdminAddView extends StatelessWidget {
               SizedBox(height: 16),
               ElevatedButton(
                 onPressed: _savePlace,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF5E8A75),
+                  foregroundColor: Colors.white,
+                ),
                 child: Text('Add Place'),
               ),
             ],

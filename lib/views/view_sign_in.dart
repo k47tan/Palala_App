@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:palala/viewmodels/viewmodels_auth.dart';
 
@@ -61,6 +60,7 @@ class SignInView extends StatelessWidget {
                 const SizedBox(height: 20),
                 TextFormField(
                   controller: authUser.passwordController,
+                  obscureText: true,
                   decoration: InputDecoration(
                     labelText: 'Password',
                     labelStyle: const TextStyle(color: Colors.black),
@@ -106,26 +106,26 @@ class SignInView extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Sign in with',
-                      style: TextStyle(fontSize: 16, color: Colors.black),
-                    ),
-                    const SizedBox(width: 10),
-                    IconButton(
-                      onPressed: () {},
-                      icon: SvgPicture.asset(
-                        'assets/svg/icon-google.svg',
-                        width: 20,
-                        height: 20,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 10),
+                // const SizedBox(height: 10),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     const Text(
+                //       'Sign in with',
+                //       style: TextStyle(fontSize: 16, color: Colors.black),
+                //     ),
+                //     const SizedBox(width: 10),
+                //     IconButton(
+                //       onPressed: () {},
+                //       icon: SvgPicture.asset(
+                //         'assets/svg/icon-google.svg',
+                //         width: 20,
+                //         height: 20,
+                //       ),
+                //     ),
+                //   ],
+                // ),
+                const SizedBox(height: 40),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

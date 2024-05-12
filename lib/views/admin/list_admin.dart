@@ -58,7 +58,7 @@ class AdminHomeView extends StatelessWidget {
                                 place.name.toString(),
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              subtitle: Text(place.description.toString()),
+                              // subtitle: Text(place.description.toString()),
                               trailing: IconButton(
                                 icon: Icon(Icons.delete),
                                 onPressed: () {
@@ -82,6 +82,10 @@ class AdminHomeView extends StatelessWidget {
                         // Pindah ke halaman tambah
                         Get.offNamed('/admin-add');
                       },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF5E8A75),
+                        foregroundColor: Colors.white,
+                      ),
                       child: Text('Add'),
                     ),
                   ),
