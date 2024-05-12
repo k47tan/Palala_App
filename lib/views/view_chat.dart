@@ -1,23 +1,64 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../viewmodels/viewmodel_ai.dart';
 import 'widget/widget_navbar.dart';
 
-class ChatBotView extends StatelessWidget {
-  const ChatBotView({super.key});
+class RecommendationView extends StatelessWidget {
+  final RecommendationController controller =
+      Get.put(RecommendationController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Chat Bot'),
+        title: Text('travel recommendations'),
       ),
-      body: SingleChildScrollView(
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
         child: Column(
-          children: const [
-            SizedBox(height: 20),
-            Text('Welcome to Chat Bot, Comming son',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-            SizedBox(height: 20),
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TextField(
+              onChanged: controller.setProvince,
+              decoration: InputDecoration(
+                labelText: 'Province',
+                border: OutlineInputBorder(),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+              ),
+            ),
+            SizedBox(height: 16.0),
+            TextField(
+              onChanged: controller.setRegency,
+              decoration: InputDecoration(
+                labelText: 'Regency',
+                border: OutlineInputBorder(),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+              ),
+            ),
+            SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: () => controller.fetchRecommendations(),
+              child: Text('Get Recommendations'),
+            ),
+            SizedBox(height: 16.0),
+            Obx(() {
+              if (controller.isLoading.value) {
+                return CircularProgressIndicator();
+              } else {
+                return Expanded(
+                  child: SingleChildScrollView(
+                    child: Text(
+                      controller.recommendationData.value!.choices[0]!.message!
+                          .content!,
+                      style: TextStyle(fontSize: 16.0),
+                    ),
+                  ),
+                );
+              }
+            }),
           ],
         ),
       ),

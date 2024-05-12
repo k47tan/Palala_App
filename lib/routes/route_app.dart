@@ -15,7 +15,7 @@ class AppRoute {
     GetPage(name: '/home', page: () => HomeView()),
     GetPage(name: '/admin-add', page: () => AdminAddView()),
     GetPage(name: '/admin-home', page: () => AdminHomeView()),
-    GetPage(name: '/chat-bot', page: () => ChatBotView()),
+    GetPage(name: '/chat-bot', page: () => RecommendationView()),
     GetPage(name: '/weather', page: () => WeatherView()),
   ];
 }
