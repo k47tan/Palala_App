@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -5,7 +7,6 @@ import 'package:image_picker/image_picker.dart';
 import '../../viewmodels/viewmodel_place.dart';
 import '../../viewmodels/viewmodels_auth.dart';
 
-// ignore: must_be_immutable
 class AdminAddView extends StatelessWidget {
   final PlaceViewModel _placeViewModel = Get.put(PlaceViewModel());
   final AuthUser authUser = Get.find<AuthUser>();
@@ -27,7 +28,6 @@ class AdminAddView extends StatelessWidget {
 
   Future<void> _savePlace() async {
     if (_imageFile == null) {
-      // Menampilkan pesan kesalahan jika gambar belum dipilih
       Get.snackbar('Error', 'Please select an image.');
       return;
     }
@@ -65,19 +65,24 @@ class AdminAddView extends StatelessWidget {
                 controller: nameController,
                 decoration: InputDecoration(labelText: 'Name'),
               ),
+              SizedBox(height: 16),
               TextField(
                 controller: descriptionController,
                 decoration: InputDecoration(labelText: 'Description'),
               ),
+              SizedBox(height: 16),
               ElevatedButton(
                 onPressed: _getImage,
                 child: Text('Select Image'),
               ),
+              SizedBox(height: 16),
               _imageFile != null ? Image.file(_imageFile!) : Container(),
+              SizedBox(height: 16),
               TextField(
                 controller: locationController,
                 decoration: InputDecoration(labelText: 'Location'),
               ),
+              SizedBox(height: 16),
               ElevatedButton(
                 onPressed: _savePlace,
                 child: Text('Add Place'),

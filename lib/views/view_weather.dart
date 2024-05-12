@@ -12,7 +12,16 @@ class WeatherView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: Container(
+        alignment: Alignment.center,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              'assets/images/background.JPG',
+            ),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -30,25 +39,60 @@ class WeatherView extends StatelessWidget {
                 // Tampilkan data cuaca saat sudah tersedia
                 return Obx(() {
                   if (_weatherViewModel.weather.value != null) {
-                    return Column(
-                      children: [
-                        Text(
-                          'Current Weather:',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        Image.network(iconUrl(_weatherViewModel
-                            .weather.value!.weather![0].icon!)),
-                        Text(
-                          'City: ${_weatherViewModel.weather.value!.name}',
-                        ),
-                        Text(
-                          'Temperature: ${_weatherViewModel.weather.value!.main!.temp}°C',
-                        ),
-                        Text(
-                          'Description: ${_weatherViewModel.weather.value!.weather![0].description}',
-                        ),
-                        // Add more weather data fields as needed
-                      ],
+                    return Container(
+                      padding: const EdgeInsets.all(20),
+                      width: 350,
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 221, 233, 227),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        children: [
+                          Text(
+                            'Weather',
+                            style: TextStyle(
+                              fontSize: 30,
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              Image.network(
+                                iconUrl(_weatherViewModel
+                                    .weather.value!.weather![0].icon!),
+                                width: 150,
+                                height: 150,
+                                fit: BoxFit.cover,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '${_weatherViewModel.weather.value!.weather![0].description}',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                  Text(
+                                    '${_weatherViewModel.weather.value!.main!.temp}°C',
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.location_on),
+                              Text(
+                                '${_weatherViewModel.weather.value!.name}',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ],
+                          ),
+                          // Add more weather data fields as needed
+                        ],
+                      ),
                     );
                   } else {
                     return SizedBox(); // Jangan tampilkan jika data cuaca masih null
