@@ -1,12 +1,13 @@
 import 'dart:convert';
 
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 
 import '../models/model_current_weather.dart';
 import 'package:http/http.dart' as http;
 
 class WeatherViewModel extends GetxController {
-  String apiKey = "2e6aa4ecac0835843c2b6d0412b1319c";
+  final String? apiKey = dotenv.env['WEATHER_API'];
   Rx<CurrentWeather?> weather = Rx<CurrentWeather?>(null);
 
   Future<void> fetchWeather(double lat, double lon) async {
@@ -30,8 +31,8 @@ class WeatherViewModel extends GetxController {
   }
 }
 
-String apiUrl(double lat, double lon, String apiKey) {
-  return "https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&lang=id&appid=$apiKey&units=metric";
+String apiUrl(double lat, double lon, String? apiKey) {
+  return "https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&lang=en&appid=$apiKey&units=metric";
 }
 
 String iconUrl(String icon) {

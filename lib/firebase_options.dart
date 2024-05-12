@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -52,8 +53,8 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyD7i-Z9okQEdm9P0jgEfA3whvubusUE26w',
+  static FirebaseOptions android = FirebaseOptions(
+    apiKey: '${dotenv.env['FIREBASE_API_KEY']}',
     appId: '1:209624047180:android:50da9c0fe11da799851ee9',
     messagingSenderId: '209624047180',
     projectId: 'palala-app-b1873',

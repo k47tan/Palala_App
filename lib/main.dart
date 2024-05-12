@@ -4,8 +4,10 @@ import 'package:get/get.dart';
 import 'package:palala/firebase_options.dart';
 import 'package:palala/routes/route_app.dart';
 import 'package:palala/views/view_splah.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
+  await dotenv.load(fileName: "lib/.env");
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
